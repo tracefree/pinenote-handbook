@@ -62,7 +62,7 @@ You can read out the VCOM voltage by executing the following command in a
 shell (either in GNOME, using the UART console, or via ssh):
 
 ```sh
-cat /sys/module/tps65185_regulator/drivers/i2c\:tps65185/3-0068/regulator/regulator.29/microvolts
+find -L /sys/class/regulator -maxdepth 2 -name "*vcom" -execdir cat microvolts \; 2>/dev/null
 ```
 
 !!!info
